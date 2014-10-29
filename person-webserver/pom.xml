@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>java-ee-helloworld</groupId>
+    <artifactId>person-webserver</artifactId>
+    <packaging>war</packaging>
+    <version>1.0.0</version>
+	<name>java-ee-helloworld person-webserver</name>
+
+    <parent>
+        <groupId>java-ee-helloworld</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>java-ee-helloworld</groupId>
+            <artifactId>person-library</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+    </profiles>
+
+    <properties>
+        <junit.version>4.10</junit.version>
+    </properties>
+</project>

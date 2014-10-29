@@ -1,0 +1,19 @@
+<html>
+<body>
+<form id="addPerson" method="post" action="./persons">
+<input type="hidden" name="action" value="add"/>
+First: <input type="text" name="firstname"/><br>
+Last: <input type="text" name="lastname"/><br>
+<input type="submit" value="speichern"/>
+</form>
+<form id="deletePerson" method="post" action="./persons">
+<input type="hidden" name="action" value="delete"/>
+First: <input type="text" name="firstname"/><br>
+Last: <input type="text" name="lastname"/><br>
+<input type="submit" value="löschen"/>
+</form>
+<form id="listPersons" method="get" action="./persons">
+<input type="submit" value="list"/>
+</form>
+</body>
+</html>
