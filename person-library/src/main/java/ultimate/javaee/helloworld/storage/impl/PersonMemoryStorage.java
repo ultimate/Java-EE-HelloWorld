@@ -7,11 +7,13 @@ import java.util.List;
 import ultimate.javaee.helloworld.model.Person;
 import ultimate.javaee.helloworld.storage.PersonStorage;
 
-public class PersonMemoryStorage implements PersonStorage {
-	
-	private List<Person> persons;
-	
-	public PersonMemoryStorage() {
+public class PersonMemoryStorage implements PersonStorage
+{
+
+	private List<Person>	persons;
+
+	public PersonMemoryStorage()
+	{
 		persons = new ArrayList<Person>();
 
 		addPerson(new Person("John", "Doe"));
@@ -20,7 +22,8 @@ public class PersonMemoryStorage implements PersonStorage {
 	}
 
 	@Override
-	public boolean addPerson(Person person) {
+	public boolean addPerson(Person person)
+	{
 		if(person == null)
 			return false;
 		if(persons.contains(person))
@@ -29,7 +32,8 @@ public class PersonMemoryStorage implements PersonStorage {
 	}
 
 	@Override
-	public boolean removePerson(Person person) {
+	public boolean removePerson(Person person)
+	{
 		if(person == null)
 			return false;
 		if(persons.contains(person))
@@ -38,7 +42,8 @@ public class PersonMemoryStorage implements PersonStorage {
 	}
 
 	@Override
-	public List<Person> getPersons() {
+	public List<Person> getPersons()
+	{
 		return Collections.unmodifiableList(persons);
 	}
 }
