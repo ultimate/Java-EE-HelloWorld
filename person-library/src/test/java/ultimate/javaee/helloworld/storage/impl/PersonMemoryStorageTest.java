@@ -1,12 +1,16 @@
 package ultimate.javaee.helloworld.storage.impl;
 
+import junit.framework.TestCase;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import ultimate.javaee.helloworld.model.Person;
 import ultimate.javaee.helloworld.storage.PersonStorage;
-import ultimate.javaee.helloworld.storage.impl.PersonMemoryStorage;
-import junit.framework.TestCase;
 
 public class PersonMemoryStorageTest extends TestCase
 {
+	private transient final Logger logger = LoggerFactory.getLogger(getClass());
 
 	private PersonStorage	personStorage;
 
@@ -26,6 +30,8 @@ public class PersonMemoryStorageTest extends TestCase
 
 	public void testGetPersons() throws Exception
 	{
+		logger.debug("testing getPersons...");
+		
 		assertEquals(3, personStorage.getPersons().size());
 
 		assertTrue(personStorage.getPersons().contains(new Person("John", "Doe")));
@@ -35,6 +41,8 @@ public class PersonMemoryStorageTest extends TestCase
 
 	public void testAddPerson() throws Exception
 	{
+		logger.debug("testing addPerson...");
+		
 		assertTrue(personStorage.getPersons().size() > 0);
 		Person oldPerson = personStorage.getPersons().get(0);
 		Person newPerson = new Person("Thomas", "Taylor");
@@ -53,6 +61,8 @@ public class PersonMemoryStorageTest extends TestCase
 
 	public void testRemovePerson() throws Exception
 	{
+		logger.debug("testing removePerson...");
+		
 		assertTrue(personStorage.getPersons().size() > 0);
 		Person oldPerson = personStorage.getPersons().get(0);
 		Person newPerson = new Person("Paul", "White");

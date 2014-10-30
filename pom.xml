@@ -47,31 +47,6 @@
                     <downloadJavadocs>true</downloadJavadocs>
                     <projectNameTemplate>[artifactId]</projectNameTemplate>
                     <workspace>${basedir}</workspace>
-					<maven.eclipse.classpath.include>src/main/webapp</maven.eclipse.classpath.include>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12.4</version>
-                <configuration>
-                    <useFile>${surefire.useFile}</useFile>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.7</version>
-                <configuration>
-                    <skip>${mvn.deploy.skip}</skip>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>1.3.1</version>
-                <configuration>
-                    <generateBackupPoms>false</generateBackupPoms>
                 </configuration>
             </plugin>
         </plugins>
@@ -108,10 +83,6 @@
             <id>glassfish-repository.dev.java.net</id>
             <url>http://download.java.net/maven/glassfish</url>
         </repository>
-        <repository>
-            <id>appfuse</id>
-            <url>http://static.appfuse.org/repository</url>
-        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -126,28 +97,16 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.servlet</artifactId>
-            <version>${servlet.version}</version>
-            <scope>provided</scope>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -155,7 +114,7 @@
     </profiles>
 
     <properties>
-        <servlet.version>3.1.1</servlet.version>
+        <junit.version>4.10</junit.version>
         <slf4j.version>1.6.4</slf4j.version>
         <log4j.version>1.2.16</log4j.version>
         <jetty.version>8.1.16.v20140903</jetty.version>
