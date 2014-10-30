@@ -2,6 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
+	<!--
+	  	General project information
+	-->
     <modelVersion>4.0.0</modelVersion>
     <groupId>java-ee-helloworld</groupId>
     <artifactId>person-library</artifactId>
@@ -9,6 +12,9 @@
     <version>1.0.0</version>
 	<name>java-ee-helloworld person-library</name>
 
+	<!--
+	  	Since this is a module within the parent pom, we need to reference the parent here.
+	-->
     <parent>
         <groupId>java-ee-helloworld</groupId>
         <artifactId>parent</artifactId>
@@ -19,6 +25,9 @@
         <defaultGoal>install</defaultGoal>
     </build>
 
+	<!--
+		We will only need to declare additional dependencies here.
+	-->
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -40,6 +49,9 @@
     <profiles>
     </profiles>
 
+	<!--
+		Properties (e.g. version numbers) are defined here for easier configuration.
+	-->
     <properties>
         <spring.version>3.1.2.RELEASE</spring.version>
     </properties>
