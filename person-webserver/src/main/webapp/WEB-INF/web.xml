@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
- - Syncnapsis Framework - Copyright (c) 2012-2014 ultimate
- - 
- - This program is free software; you can redistribute it and/or modify it under the terms of
- - the GNU General Public License as published by the Free Software Foundation; either version
- - 3 of the License, or any later version.
- - 
- - This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- - without even the implied warranty of MECHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- - See the GNU General Public License for more details.
- - 
- - You should have received a copy of the GNU General Plublic License along with this program;
- - if not, see <http://www.gnu.org/licenses/>.
--->
-
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"> 
 
+	<!--
+		some descriptive name for the web application
+	-->
 	<description><![CDATA[person-webserver]]></description>
 	<display-name>person-webserver</display-name>
 	
+	<!--
+		Declare all application context files to load here.
+		On startup the ContextLoaderListener declared below will load the beans from those files.
+	-->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -28,6 +20,13 @@
 		</param-value>
 	</context-param>
     
+    <!--
+    	Declaration of the "personFilter".
+    	We use a spring DelegatingFilterProxy here to delegate the filter logic to our filter bean.
+    	This way we can declare our filter in the application context and use the bean-syntax to link
+    	it to other beans.,
+    	
+     -->
     <filter>
     	<filter-name>personFilter</filter-name>
     	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -35,17 +34,26 @@
     		<param-name>targetBeanName</param-name>
     		<param-value>personFilter</param-value>
     	</init-param>
-    </filter>
-    
+    </filter>    
+    <!--
+    	Mapping of the "personFilter" to a specific URL
+    -->
     <filter-mapping>
       	<filter-name>personFilter</filter-name>
       	<url-pattern>/persons</url-pattern>
     </filter-mapping>
     
+    <!--
+    	Registration of the spring ContextLoaderListener responsible for creating the application context.  
+     -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	<!--
+		Declaration of which file will be delivered if the url for our application is called. Usually this
+		is the index.html but of course a different file may be mapped here, too.s  
+	 -->
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>	
 	</welcome-file-list>

@@ -1,20 +1,28 @@
 <html>
 <body>
-<form id="addPerson" method="post" action="./persons" target="results">
-<input type="hidden" name="action" value="add"/>
-First: <input type="text" name="firstname"/><br>
-Last: <input type="text" name="lastname"/><br>
-<input type="submit" value="save"/>
-</form>
-<form id="deletePerson" method="post" action="./persons" target="results">
-<input type="hidden" name="action" value="delete"/>
-First: <input type="text" name="firstname"/><br>
-Last: <input type="text" name="lastname"/><br>
-<input type="submit" value="delete"/>
-</form>
-<form id="listPersons" method="get" action="./persons" target="results">
-<input type="submit" value="list"/>
-</form>
-<iframe name="results"></iframe>
+	<!--
+		This is a very short example page used to show the behavior of our PersonFilter.
+		It provides 3 forms each targeting the /persons URL we declared for the PersonFilter 
+		in the web.xml. The add and delete forms are using the "post" method. The list form
+		uses "get". Unfortunately HTML forms do not support "delete", otherwise we could have
+		used this for the delete action instead of passing a hidden action field.
+		All action results are then displayed in the embedded iframe.
+	 -->
+	<form id="addPerson" method="post" action="./persons" target="results">
+		<input type="hidden" name="action" value="add"/>
+		First: <input type="text" name="firstname"/><br>
+		Last: <input type="text" name="lastname"/><br>
+		<input type="submit" value="add"/>
+	</form>
+	<form id="removePerson" method="post" action="./persons" target="results">
+		<input type="hidden" name="action" value="remove"/>
+		First: <input type="text" name="firstname"/><br>
+		Last: <input type="text" name="lastname"/><br>
+		<input type="submit" value="remove"/>
+	</form>
+	<form id="listPersons" method="get" action="./persons" target="results">
+		<input type="submit" value="list"/>
+	</form>
+	<iframe name="results" width="100%" height="400px"></iframe>
 </body>
 </html>

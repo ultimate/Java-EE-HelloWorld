@@ -6,9 +6,19 @@
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
 	default-lazy-init="true" >
 
+	<!--
+		Definition of the "personStorage" bean by use of the PersonMemoryStorage class.  
+		If a different implementation should be used we can simply replace the class name here
+		without the need to compile dependent beans like the "personFilter".
+ 	-->
 	<bean id="personStorage" class="ultimate.javaee.helloworld.storage.impl.PersonMemoryStorage">
 	</bean>
 	
+	<!--
+		Definition of the "personFilter" bean by use of the PersonFilter class.  
+		Note that the filter requires a PersonStorage as a constructor argument but does not know
+		which specific implementation it is of since it only refers to the interface. 
+ 	-->
 	<bean id="personFilter" class="ultimate.javaee.helloworld.web.PersonFilter">
 		<constructor-arg ref="personStorage" />		
 	</bean>
