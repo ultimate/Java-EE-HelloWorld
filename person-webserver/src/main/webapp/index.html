@@ -1,19 +1,20 @@
 <html>
 <body>
-<form id="addPerson" method="post" action="./persons">
+<form id="addPerson" method="post" action="./persons" target="results">
 <input type="hidden" name="action" value="add"/>
 First: <input type="text" name="firstname"/><br>
 Last: <input type="text" name="lastname"/><br>
-<input type="submit" value="speichern"/>
+<input type="submit" value="save"/>
 </form>
-<form id="deletePerson" method="post" action="./persons">
+<form id="deletePerson" method="post" action="./persons" target="results">
 <input type="hidden" name="action" value="delete"/>
 First: <input type="text" name="firstname"/><br>
 Last: <input type="text" name="lastname"/><br>
-<input type="submit" value="löschen"/>
+<input type="submit" value="delete"/>
 </form>
-<form id="listPersons" method="get" action="./persons">
+<form id="listPersons" method="get" action="./persons" target="results">
 <input type="submit" value="list"/>
 </form>
+<iframe name="results"></iframe>
 </body>
 </html>
