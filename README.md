@@ -24,7 +24,9 @@ Before we can start with the example itself we have to prepare our development e
 
 Since we want to create a web server in Java of course we will need to install the JDK (Java Development Kit) which contains the tools for compiling our project and not just the JRE (Java Runtime Environment) which is required for executing the program.
 
-So download and install the JDK (which will include the JRE, too) from [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html) by simply following the installation wizard
+So download and install **Java SE 7 JDK** with the latest update from [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html) by simply following the installation wizard
+
+**Note:** Installing the JDK will automatically install the JRE, too.
 
 ### Maven 2
 
