@@ -36,7 +36,7 @@ So download and install the JDK (which will include the JRE, too) from here: htt
 
 ### Eclipse
 
-...
+... http://www.eclipse.org/downloads/
 
 ### Configuring the environment
 
